@@ -2,18 +2,7 @@ public class EmpWageComputation {
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
 
-	private final String company;
-	private final int empRate;
-	private final int numOfDays;
-	private final int maxHrs;
-   
-	public EmpWageComputation(String company, int empRate, int numOfDays, int maxHrs){
-		this.company = company;
-		this.empRate = empRate;
-		this.numOfDays = numOfDays;
-		this.maxHrs = maxHrs;
-	}
-   public int computeEmpWage() {
+   public static int computeEmpWage(String company, int empRate, int numOfDays, int maxHrs) {
       System.out.println("Welcome to Employee Wage Computation");
 		int empHrs, empWage=0, totalWage=0, totalEmpHrs=0, totalWorkingDays=0;
 		while (totalEmpHrs <= maxHrs && totalWorkingDays < numOfDays) {
@@ -37,14 +26,12 @@ public class EmpWageComputation {
 		System.out.println("Employee Wage for that day: " +empWage);
 		totalWage += empWage;
 	}
-	System.out.println("Total Wage for a month is :" +totalWage);
+	System.out.println("Total Wage for a month in company :" +company+ " is " +totalWage);
 	return totalWage;
 	}
 	public static void main(String[] args) {
-		EmpWageComputation dMart = new EmpWageComputation("DMart", 20, 20, 10);
-		System.out.println("total emp wage for company " +dMart.company + " is " +dMart.computeEmpWage( ) );
-		EmpWageComputation BigBasket = new EmpWageComputation("BigBasket", 20, 25, 8);
-      System.out.println("total emp wage for company " +BigBasket.company + " is " +BigBasket.computeEmpWage( ) );
+		computeEmpWage("DMart", 20, 20, 10);
+		computeEmpWage("BigBasket", 20, 25, 8);
 	}
 }
 
